@@ -5,4 +5,5 @@
 
 
 ### 사주 팔자 크롤러 동작 다이어그램 1차 완성본 (계속 추가 수정중)
+---
 ![사주 팔자 크롤러 동작 다이어그램 1차 완성본](https://user-images.githubusercontent.com/66206572/101158174-ace62b00-366e-11eb-9db7-c9b407def51e.png)
