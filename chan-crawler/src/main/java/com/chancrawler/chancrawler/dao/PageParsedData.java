@@ -1,4 +1,4 @@
-package dao;
+package com.chancrawler.chancrawler.dao;
 
-public class pageParsedData {
+public class PageParsedData {
 }

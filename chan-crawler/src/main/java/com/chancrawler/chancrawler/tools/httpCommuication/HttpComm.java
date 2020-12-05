@@ -1,4 +1,4 @@
-package tools.httpCommuication;
+package com.chancrawler.chancrawler.tools.httpCommuication;
 
-public class httpComm {
+public class HttpComm {
 }

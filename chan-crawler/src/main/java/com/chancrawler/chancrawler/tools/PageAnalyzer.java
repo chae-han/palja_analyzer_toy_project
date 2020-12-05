@@ -1,4 +1,8 @@
-package tools;
+package com.chancrawler.chancrawler.tools;
 
-public class pageAnalyzer {
+import org.springframework.core.annotation.Order;
+import org.springframework.stereotype.Component;
+
+
+public class PageAnalyzer {
 }

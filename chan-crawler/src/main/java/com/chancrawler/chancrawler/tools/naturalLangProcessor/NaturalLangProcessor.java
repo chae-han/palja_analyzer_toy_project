@@ -1,4 +1,4 @@
-package tools.naturalLangProcessor;
+package com.chancrawler.chancrawler.tools.naturalLangProcessor;
 
-public class naturalLangProcessor {
+public class NaturalLangProcessor {
 }

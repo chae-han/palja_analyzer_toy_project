@@ -1,4 +1,4 @@
-package tools.parser;
+package com.chancrawler.chancrawler.tools.parser;
 
-public class pageParser {
+public class PageParser {
 }

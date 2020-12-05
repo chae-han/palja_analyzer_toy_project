@@ -1,4 +1,4 @@
-package notification;
+package com.chancrawler.chancrawler.notification;
 
-public class errNotification {
+public class ErrNotification {
 }
