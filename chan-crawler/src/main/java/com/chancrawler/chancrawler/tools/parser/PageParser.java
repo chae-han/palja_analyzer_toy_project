@@ -9,7 +9,7 @@ public class PageParser {
 
     public static boolean parsing(String uri) {
 
-        logger.info("PageParser start with message " + uri);
+        logger.info("PageParser start with message " + uri );
         int val = Integer.parseInt(uri);
         int tmp = 0;
 
