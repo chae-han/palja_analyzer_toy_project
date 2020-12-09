@@ -1,6 +1,6 @@
 package com.chancrawler.chancrawler.tools.messaging;
 
-abstract class RedisTask extends Thread{
+public abstract class RedisTask extends Thread{
 
     protected String message = "";
     protected String channel = "";

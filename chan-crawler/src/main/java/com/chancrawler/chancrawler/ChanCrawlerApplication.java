@@ -3,12 +3,14 @@ package com.chancrawler.chancrawler;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 import java.io.InputStream;
 import java.util.logging.LogManager;
 import java.util.logging.Logger;
 
 @SpringBootApplication
+@EnableScheduling
 public class ChanCrawlerApplication {
 
 	private static Logger logger;

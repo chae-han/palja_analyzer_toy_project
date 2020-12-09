@@ -5,7 +5,7 @@ import io.lettuce.core.pubsub.RedisPubSubAdapter;
 import java.util.ArrayList;
 import java.util.List;
 
-abstract class RedisWorker<K,V,T extends Thread> extends RedisPubSubAdapter<K,V> {
+public abstract class RedisWorker<K,V,T extends Thread> extends RedisPubSubAdapter<K,V> {
 
     protected final int maxWorkerNumber;
     protected final List<T> workers = new ArrayList<>();

@@ -1,9 +1,13 @@
 package com.chancrawler.chancrawler.tools.messaging;
 
+import com.chancrawler.chancrawler.RunCrawlerApplication;
+
+import java.util.logging.Logger;
+
 import static com.chancrawler.chancrawler.tools.parser.PageParser.*;
 
 public class PageParserTask extends RedisTask{
-
+    private static Logger logger = Logger.getLogger(PageParserTask.class.getName());
     private RedisPublisher redisPublisher = null;
 
     public PageParserTask(final String channel, final String message, final RedisPublisher redisPublisher) {
@@ -13,7 +17,7 @@ public class PageParserTask extends RedisTask{
 
     @Override
     public void run() {
-        System.out.println(channel + "==" + message);
+        logger.info(channel+ " start with message " + message);
 
         try {
             String[] arr = message.split("-");
@@ -22,11 +26,11 @@ public class PageParserTask extends RedisTask{
             boolean result = parsing(arr[1]);
 
             if(result) {
-                System.out.println(channel + "==" + "retry");
+                logger.info(channel+ " send message to ch02");
                 redisPublisher.publish("ch02", "message-"+Integer.toString(val-1));
             }else {
                 Thread.sleep(5000);
-                System.out.println(channel + "==" + "done");
+                logger.info(channel+ " work done");
                 //redisPublisher.publish(channel, "message-"+Integer.toString(val-1));
             }
 
