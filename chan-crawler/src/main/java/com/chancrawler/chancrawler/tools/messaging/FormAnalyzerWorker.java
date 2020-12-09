@@ -1,14 +1,11 @@
 package com.chancrawler.chancrawler.tools.messaging;
 
-import java.util.List;
 
-public class PageParserWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T> {
+public class FormAnalyzerWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T> {
 
-    private final RedisPublisher redisPublisher;
 
-    public PageParserWorker(Class<T> taskClass, final int MaxWorkerNumber, final RedisPublisher redisPublisher) {
+    public FormAnalyzerWorker(Class<T> taskClass, final int MaxWorkerNumber) {
         super(taskClass, MaxWorkerNumber);
-        this.redisPublisher = redisPublisher;
     }
 
     @Override
@@ -17,7 +14,7 @@ public class PageParserWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T
             for (int i = 0; i < maxWorkerNumber; i++) {
                 if (workers.get(i) == null || workers.get(i).getState() == Thread.State.NEW  || workers.get(i).getState() == Thread.State.TERMINATED) {
                     try {
-                        workers.set(i, (T) taskClass.getDeclaredConstructor(String.class, String.class, RedisPublisher.class).newInstance(channel, message, redisPublisher));
+                        workers.set(i, (T) taskClass.getDeclaredConstructor(String.class, String.class).newInstance(channel, message));
                         workers.get(i).start();
                         return;
                     } catch (Exception e) {

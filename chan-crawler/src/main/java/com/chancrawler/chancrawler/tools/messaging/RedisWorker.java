@@ -20,23 +20,11 @@ abstract class RedisWorker<K,V,T extends Thread> extends RedisPubSubAdapter<K,V>
         }
     }
 
-    abstract void listenerHandler(K channel, V message);
-
-//    public int getMaxWorkerNumber() {
-//        return MaxWorkerNumber;
-//    }
-//
-//    public List<T> getWorkers() {
-//        return workers;
-//    }
-//
-//    public Class<T> getTaskClass() {
-//        return taskClass;
-//    }
+    abstract void workerHandler(K channel, V message);
 
     @Override
     public void message(K channel, V message) {
-        listenerHandler(channel, message);
+        workerHandler(channel, message);
     }
 
 }
