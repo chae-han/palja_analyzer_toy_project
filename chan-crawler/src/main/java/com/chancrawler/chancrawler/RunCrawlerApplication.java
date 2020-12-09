@@ -1,11 +1,19 @@
 package com.chancrawler.chancrawler;
 
 
+import io.lettuce.core.RedisClient;
+import io.lettuce.core.RedisFuture;
+import io.lettuce.core.pubsub.RedisPubSubAdapter;
+import io.lettuce.core.pubsub.RedisPubSubListener;
+import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;
+import io.lettuce.core.pubsub.api.async.RedisPubSubAsyncCommands;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 
 @Component
@@ -16,7 +24,6 @@ public class RunCrawlerApplication implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments arguments) throws Exception{
         logger.info("start");
-
 
     }
 }

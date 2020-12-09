@@ -1,8 +1,10 @@
 package com.chancrawler.chancrawler.tools;
 
-import org.springframework.core.annotation.Order;
-import org.springframework.stereotype.Component;
+
+
+import java.util.logging.Logger;
 
 
 public class PageAnalyzer {
+
 }
