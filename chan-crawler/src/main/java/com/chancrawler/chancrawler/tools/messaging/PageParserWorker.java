@@ -2,17 +2,19 @@ package com.chancrawler.chancrawler.tools.messaging;
 
 import java.util.List;
 
-public class ParserWorker<K,V,T extends Thread> extends RedisListener<K,V,T>{
+public class PageParserWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T> {
 
-    private final int maxWorkerNumber;
-    private final List<T> workers;
-    private final Class<T> taskClass;
+//    private final int maxWorkerNumber;
+//    private final List<T> workers;
+//    private final Class<T> taskClass;
+    private final RedisPublisher redisPublisher;
 
-    public ParserWorker(Class<T> taskClass, final int MaxWorkerNumber) {
+    public PageParserWorker(Class<T> taskClass, final int MaxWorkerNumber, final RedisPublisher redisPublisher) {
         super(taskClass, MaxWorkerNumber);
-        this.maxWorkerNumber = getMaxWorkerNumber();
-        this.workers = getWorkers();
-        this.taskClass = getTaskClass();
+//        this.maxWorkerNumber = getMaxWorkerNumber();
+//        this.workers = getWorkers();
+//        this.taskClass = getTaskClass();
+        this.redisPublisher = redisPublisher;
     }
 
     @Override
@@ -21,8 +23,7 @@ public class ParserWorker<K,V,T extends Thread> extends RedisListener<K,V,T>{
             for (int i = 0; i < maxWorkerNumber; i++) {
                 if (workers.get(i) == null || workers.get(i).getState() == Thread.State.NEW  || workers.get(i).getState() == Thread.State.TERMINATED) {
                     try {
-                        //Class.getDeclaredConstructor(String.class).newInstance("HERESMYARG");
-                        workers.set(i, (T) taskClass.getDeclaredConstructor(String.class).newInstance(message));
+                        workers.set(i, (T) taskClass.getDeclaredConstructor(String.class, String.class, RedisPublisher.class).newInstance(channel, message, redisPublisher));
                         workers.get(i).start();
                         return;
                     } catch (Exception e) {
