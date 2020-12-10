@@ -8,6 +8,7 @@ import io.lettuce.core.pubsub.RedisPubSubAdapter;
 import io.lettuce.core.pubsub.RedisPubSubListener;
 import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;
 import io.lettuce.core.pubsub.api.async.RedisPubSubAsyncCommands;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.core.annotation.Order;
@@ -23,12 +24,15 @@ import java.util.logging.Logger;
 public class RunCrawlerApplication implements ApplicationRunner {
     private static Logger logger = Logger.getLogger(RunCrawlerApplication.class.getName());
 
+//    @Autowired
+//    private MainAppTest mainAppTest;
+
     @Override
     public void run(ApplicationArguments arguments) throws Exception{
         logger.info("start");
 
-        MainAppTest mainAppTest = new MainAppTest();
-        mainAppTest.startTest();
+//        MainAppTest mainAppTest = new MainAppTest();
+        //mainAppTest.startTest();
     }
 }
 

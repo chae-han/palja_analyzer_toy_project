@@ -10,7 +10,7 @@ public class publisher {
         StatefulRedisConnection<String, String> sender = client.connect();
         int i = 0;
         for (i = 0; i< 100; i++) {
-            sender.async().publish("ch02", "Message " + Integer.toString(i));
+            sender.async().publish("ch01", "Message " + Integer.toString(i));
         }
     }
 }

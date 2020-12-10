@@ -4,8 +4,11 @@ import io.lettuce.core.pubsub.RedisPubSubAdapter;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Logger;
 
 public abstract class RedisWorker<K,V,T extends Thread> extends RedisPubSubAdapter<K,V> {
+
+    private static final Logger logger = Logger.getLogger(RedisWorker.class.getName());
 
     protected final int maxWorkerNumber;
     protected final List<T> workers = new ArrayList<>();
@@ -24,6 +27,7 @@ public abstract class RedisWorker<K,V,T extends Thread> extends RedisPubSubAdapt
 
     @Override
     public void message(K channel, V message) {
+        logger.info("[RedisWorker start]========== " + channel + ", " + message);
         workerHandler(channel, message);
     }
 

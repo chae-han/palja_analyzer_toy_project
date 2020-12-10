@@ -18,13 +18,14 @@ public class PageParserWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T
 
     @Override
     void workerHandler(K channel, V message) {
+        logger.info("[workerHandler start]========== " + channel + ", " + message);
+
         while(true) {
             for (int i = 0; i < maxWorkerNumber; i++) {
 
                 if (workers.get(i) == null || workers.get(i).getState() == Thread.State.NEW  || workers.get(i).getState() == Thread.State.TERMINATED) {
 
                     try {
-                        logger.info("set task in " + Integer.toString(i));
                         workers.set(i, (T) taskClass.getDeclaredConstructor(String.class, String.class, RedisPublisher.class).newInstance(channel, message, redisPublisher));
                         workers.get(i).start();
                         return;
@@ -35,4 +36,5 @@ public class PageParserWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T
             }
         }
     }
+
 }

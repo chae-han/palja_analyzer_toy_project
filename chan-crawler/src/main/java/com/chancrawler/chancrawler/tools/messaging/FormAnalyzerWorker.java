@@ -1,8 +1,10 @@
 package com.chancrawler.chancrawler.tools.messaging;
 
 
-public class FormAnalyzerWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T> {
+import java.util.logging.Logger;
 
+public class FormAnalyzerWorker<K,V,T extends RedisTask> extends RedisWorker<K,V,T> {
+    private static final Logger logger = Logger.getLogger(FormAnalyzerWorker.class.getName());
 
     public FormAnalyzerWorker(Class<T> taskClass, final int MaxWorkerNumber) {
         super(taskClass, MaxWorkerNumber);
@@ -10,6 +12,8 @@ public class FormAnalyzerWorker<K,V,T extends RedisTask> extends RedisWorker<K,V
 
     @Override
     void workerHandler(K channel, V message) {
+        logger.info("[workerHandler start]========== " + channel + ", " + message);
+
         while(true) {
             for (int i = 0; i < maxWorkerNumber; i++) {
                 if (workers.get(i) == null || workers.get(i).getState() == Thread.State.NEW  || workers.get(i).getState() == Thread.State.TERMINATED) {
