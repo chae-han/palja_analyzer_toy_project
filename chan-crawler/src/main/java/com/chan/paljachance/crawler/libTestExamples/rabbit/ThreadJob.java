@@ -1,4 +1,4 @@
-package com.chancrawler.chancrawler.libTestExamples.rabbit;
+package com.chan.paljachance.crawler.libTestExamples.rabbit;
 
 public class ThreadJob {
     private final String message;

@@ -1,4 +1,4 @@
-package com.chancrawler.chancrawler.libTestExamples.rabbit;
+package com.chan.paljachance.crawler.libTestExamples.rabbit;
 
 import com.rabbitmq.client.ConnectionFactory;
 import com.rabbitmq.client.Connection;

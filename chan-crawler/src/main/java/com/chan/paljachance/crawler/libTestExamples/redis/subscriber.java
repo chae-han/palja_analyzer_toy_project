@@ -1,6 +1,5 @@
-package com.chancrawler.chancrawler.libTestExamples.redis;
+package com.chan.paljachance.crawler.libTestExamples.redis;
 
-import com.chancrawler.chancrawler.RunCrawlerApplication;
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.pubsub.RedisPubSubAdapter;
 import io.lettuce.core.pubsub.StatefulRedisPubSubConnection;

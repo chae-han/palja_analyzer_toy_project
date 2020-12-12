@@ -1,4 +1,4 @@
-package com.chancrawler.chancrawler;
+package com.chan.paljachance;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.WebApplicationType;

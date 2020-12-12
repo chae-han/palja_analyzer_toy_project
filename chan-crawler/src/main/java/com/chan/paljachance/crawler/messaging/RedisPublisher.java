@@ -1,17 +1,20 @@
-package com.chancrawler.chancrawler.tools.messaging;
+package com.chan.paljachance.crawler.messaging;
 
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.api.StatefulRedisConnection;
-import org.springframework.stereotype.Component;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
 
-@Component
+@Configuration
 public class RedisPublisher {
 
-    private static StatefulRedisConnection<String, String> redisSender;
+    //private static StatefulRedisConnection<String, String> redisSender;
 
-    RedisPublisher() {
+    @Bean
+    StatefulRedisConnection<String, String> redisPublisherConnection() {
         RedisClient redisClient = RedisClient.create("redis://localhost:6379/");
-        this.redisSender = redisClient.connect();
+        StatefulRedisConnection<String, String> redisSender = redisClient.connect();
+        return redisSender;
     }
 
 //    public StatefulRedisConnection<String, String> connectToRedis(String ip, int port) {
@@ -22,7 +25,7 @@ public class RedisPublisher {
 //    }
 
     public void publish(String channel, String message) {
-        redisSender.async().publish(channel, message);
+        redisPublisherConnection().async().publish(channel, message);
         return;
     }
 }

@@ -1,4 +1,4 @@
-package com.chancrawler.chancrawler.libTestExamples.redis;
+package com.chan.paljachance.crawler.libTestExamples.redis;
 
 public class ThreadPoolSample extends Thread{
     //private final String threadName;

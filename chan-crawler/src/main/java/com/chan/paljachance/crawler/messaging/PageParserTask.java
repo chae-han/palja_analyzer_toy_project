@@ -1,10 +1,9 @@
-package com.chancrawler.chancrawler.tools.messaging;
+package com.chan.paljachance.crawler.messaging;
 
-import com.chancrawler.chancrawler.RunCrawlerApplication;
+import static com.chancrawler.chancrawler.tools.parser.PageParser.*;
 
 import java.util.logging.Logger;
 
-import static com.chancrawler.chancrawler.tools.parser.PageParser.*;
 
 public class PageParserTask extends RedisTask{
     private static final Logger logger = Logger.getLogger(PageParserTask.class.getName());

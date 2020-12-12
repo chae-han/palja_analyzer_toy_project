@@ -1,4 +1,4 @@
-package com.chancrawler.chancrawler.libTestExamples.redis;
+package com.chan.paljachance.crawler.libTestExamples.redis;
 
 import io.lettuce.core.RedisClient;
 import io.lettuce.core.api.StatefulRedisConnection;

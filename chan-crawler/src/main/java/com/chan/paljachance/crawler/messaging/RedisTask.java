@@ -1,4 +1,4 @@
-package com.chancrawler.chancrawler.tools.messaging;
+package com.chan.paljachance.crawler.messaging;
 
 public abstract class RedisTask extends Thread{
 
