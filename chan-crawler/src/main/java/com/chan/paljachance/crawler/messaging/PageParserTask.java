@@ -1,6 +1,5 @@
 package com.chan.paljachance.crawler.messaging;
 
-import static com.chancrawler.chancrawler.tools.parser.PageParser.*;
 
 import java.util.logging.Logger;
 
@@ -24,7 +23,7 @@ public class PageParserTask extends RedisTask{
             String[] arr = message.split("-");
             int val = Integer.parseInt(arr[1]);
 
-            boolean result = parsing(arr[1]);
+            boolean result = true;//parsing(arr[1]);
 
             if(result) {
                 redisPublisher.publish("ch02", "message-"+Integer.toString(val-1));
